@@ -8,8 +8,7 @@ export const Sidebar: FunctionComponent = () => {
 
   return (
     <div>
-      <div className="fixed inset-y-0 z-50 flex w-72 flex-col">
-        {/* Sidebar component, swap this element with another sidebar if you like */}
+      <div className="fixed inset-y-0 z-50 flex w-73 flex-col">
         <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6">
           <nav className="flex flex-1 flex-col">
             <ul role="list" className="flex flex-1 flex-col gap-y-7">
@@ -40,24 +39,6 @@ export const Sidebar: FunctionComponent = () => {
           </nav>
         </div>
       </div>
-
-      <div className="sticky top-0 z-40 flex items-center gap-x-6 bg-white px-4 py-4 shadow-sm sm:px-6 lg:hidden">
-        <div className="flex-1 text-sm font-semibold leading-6 text-gray-900">
-          Dashboard
-        </div>
-        <a href="#">
-          <span className="sr-only">Your profile</span>
-          <img
-            className="h-8 w-8 rounded-full bg-gray-50"
-            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-            alt=""
-          />
-        </a>
-      </div>
-
-      <main className="py-10 lg:pl-72">
-        <div className="px-4 sm:px-6 lg:px-8">{/* Your content */} Hejsa</div>
-      </main>
     </div>
   );
 };
