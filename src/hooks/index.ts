@@ -1,1 +1,1 @@
-export * from "./getOwnedItems";
+export * from './getOwnedItems';

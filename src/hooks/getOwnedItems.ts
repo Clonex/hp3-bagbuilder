@@ -1,46 +1,46 @@
-import * as Apollo from "@apollo/client";
-import { gql } from "@apollo/client";
-import { Maybe } from "graphql/jsutils/Maybe";
+import * as Apollo from '@apollo/client';
+import { gql } from '@apollo/client';
+import { Maybe } from 'graphql/jsutils/Maybe';
 
 const defaultOptions = {} as const;
 export type GetOwnedItemsQueryVariables = { [key: string]: never };
 
 export enum UsageType {
-  Costume = "Costume",
-  Dildo = "Dildo",
-  Explosive = "Explosive",
-  FartExplosive = "FartExplosive",
-  FriendlyExplosive = "FriendlyExplosive",
-  Hat = "Hat",
-  Mouth = "Mouth",
-  None = "None",
-  ProfileObject = "ProfileObject",
-  Pushable = "Pushable",
-  Spray = "Spray",
-  Unequippable = "Unequippable",
-  UnlimitedSpray = "UnlimitedSpray",
+	Costume = 'Costume',
+	Dildo = 'Dildo',
+	Explosive = 'Explosive',
+	FartExplosive = 'FartExplosive',
+	FriendlyExplosive = 'FriendlyExplosive',
+	Hat = 'Hat',
+	Mouth = 'Mouth',
+	None = 'None',
+	ProfileObject = 'ProfileObject',
+	Pushable = 'Pushable',
+	Spray = 'Spray',
+	Unequippable = 'Unequippable',
+	UnlimitedSpray = 'UnlimitedSpray',
 }
 
 export type GetOwnedItemsQuery = {
-  __typename: "Query";
-  ownedItems: Array<{
-    __typename: "Item";
-    id: number;
-    nameNo: string;
-    gfxList: Array<string>;
-    usageTypes?: Maybe<Array<Maybe<UsageType>>>;
-  }>;
+	__typename: 'Query';
+	ownedItems: Array<{
+		__typename: 'Item';
+		id: number;
+		nameNo: string;
+		gfxList: Array<string>;
+		usageTypes?: Maybe<Array<Maybe<UsageType>>>;
+	}>;
 };
 
 export const GetOwnedItemsDocument = gql`
-  query GetOwnedItems {
-    ownedItems {
-      id
-      nameNo
-      usageTypes
-      gfxList
-    }
-  }
+	query GetOwnedItems {
+		ownedItems {
+			id
+			nameNo
+			usageTypes
+			gfxList
+		}
+	}
 `;
 
 /**
@@ -59,51 +59,24 @@ export const GetOwnedItemsDocument = gql`
  * });
  */
 export function useGetOwnedItemsQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    GetOwnedItemsQuery,
-    GetOwnedItemsQueryVariables
-  >
+	baseOptions?: Apollo.QueryHookOptions<GetOwnedItemsQuery, GetOwnedItemsQueryVariables>
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<GetOwnedItemsQuery, GetOwnedItemsQueryVariables>(
-    GetOwnedItemsDocument,
-    options
-  );
+	const options = { ...defaultOptions, ...baseOptions };
+	return Apollo.useQuery<GetOwnedItemsQuery, GetOwnedItemsQueryVariables>(GetOwnedItemsDocument, options);
 }
 export function useGetOwnedItemsLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    GetOwnedItemsQuery,
-    GetOwnedItemsQueryVariables
-  >
+	baseOptions?: Apollo.LazyQueryHookOptions<GetOwnedItemsQuery, GetOwnedItemsQueryVariables>
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<GetOwnedItemsQuery, GetOwnedItemsQueryVariables>(
-    GetOwnedItemsDocument,
-    options
-  );
+	const options = { ...defaultOptions, ...baseOptions };
+	return Apollo.useLazyQuery<GetOwnedItemsQuery, GetOwnedItemsQueryVariables>(GetOwnedItemsDocument, options);
 }
 export function useGetOwnedItemsSuspenseQuery(
-  baseOptions?: Apollo.SuspenseQueryHookOptions<
-    GetOwnedItemsQuery,
-    GetOwnedItemsQueryVariables
-  >
+	baseOptions?: Apollo.SuspenseQueryHookOptions<GetOwnedItemsQuery, GetOwnedItemsQueryVariables>
 ) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useSuspenseQuery<
-    GetOwnedItemsQuery,
-    GetOwnedItemsQueryVariables
-  >(GetOwnedItemsDocument, options);
+	const options = { ...defaultOptions, ...baseOptions };
+	return Apollo.useSuspenseQuery<GetOwnedItemsQuery, GetOwnedItemsQueryVariables>(GetOwnedItemsDocument, options);
 }
-export type GetOwnedItemsQueryHookResult = ReturnType<
-  typeof useGetOwnedItemsQuery
->;
-export type GetOwnedItemsLazyQueryHookResult = ReturnType<
-  typeof useGetOwnedItemsLazyQuery
->;
-export type GetOwnedItemsSuspenseQueryHookResult = ReturnType<
-  typeof useGetOwnedItemsSuspenseQuery
->;
-export type GetOwnedItemsQueryResult = Apollo.QueryResult<
-  GetOwnedItemsQuery,
-  GetOwnedItemsQueryVariables
->;
+export type GetOwnedItemsQueryHookResult = ReturnType<typeof useGetOwnedItemsQuery>;
+export type GetOwnedItemsLazyQueryHookResult = ReturnType<typeof useGetOwnedItemsLazyQuery>;
+export type GetOwnedItemsSuspenseQueryHookResult = ReturnType<typeof useGetOwnedItemsSuspenseQuery>;
+export type GetOwnedItemsQueryResult = Apollo.QueryResult<GetOwnedItemsQuery, GetOwnedItemsQueryVariables>;
