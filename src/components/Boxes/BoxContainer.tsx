@@ -10,7 +10,15 @@ export const BoxContainer: FunctionComponent<{
 			{props.boxes.map((box, index) => (
 				<BoxContent key={index} data={box} />
 			))}
-			<button>Add box</button>
+			<button
+				onClick={() => {
+					const name = prompt('Name'); // TODO: Use own prompt implementation
+					if (name) {
+						props.addBox(name);
+					}
+				}}>
+				Add box
+			</button>
 		</div>
 	);
 };
