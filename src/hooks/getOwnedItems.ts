@@ -1,8 +1,25 @@
 import * as Apollo from "@apollo/client";
 import { gql } from "@apollo/client";
+import { Maybe } from "graphql/jsutils/Maybe";
 
 const defaultOptions = {} as const;
 export type GetOwnedItemsQueryVariables = { [key: string]: never };
+
+export enum UsageType {
+  Costume = "Costume",
+  Dildo = "Dildo",
+  Explosive = "Explosive",
+  FartExplosive = "FartExplosive",
+  FriendlyExplosive = "FriendlyExplosive",
+  Hat = "Hat",
+  Mouth = "Mouth",
+  None = "None",
+  ProfileObject = "ProfileObject",
+  Pushable = "Pushable",
+  Spray = "Spray",
+  Unequippable = "Unequippable",
+  UnlimitedSpray = "UnlimitedSpray",
+}
 
 export type GetOwnedItemsQuery = {
   __typename: "Query";
@@ -11,6 +28,7 @@ export type GetOwnedItemsQuery = {
     id: number;
     nameNo: string;
     gfxList: Array<string>;
+    usageTypes?: Maybe<Array<Maybe<UsageType>>>;
   }>;
 };
 
@@ -19,6 +37,7 @@ export const GetOwnedItemsDocument = gql`
     ownedItems {
       id
       nameNo
+      usageTypes
       gfxList
     }
   }
