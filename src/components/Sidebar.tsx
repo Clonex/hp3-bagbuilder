@@ -38,7 +38,7 @@ export const Sidebar: FunctionComponent<{
 												alt={item.nameNo}
 												src={`https://hundeparken.net/h5/game/gfx/item/${item.gfxList.at(0)}.png`}
 											/>
-											{item.nameNo}
+											{item.name.no}
 										</li>
 									))}
 								</ul>

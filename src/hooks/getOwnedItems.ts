@@ -26,7 +26,7 @@ export type GetOwnedItemsQuery = {
 	ownedItems: Array<{
 		__typename: 'Item';
 		id: number;
-		nameNo: string;
+		name: {no: string};
 		gfxList: Array<string>;
 		usageTypes?: Maybe<Array<Maybe<UsageType>>>;
 	}>;
@@ -36,7 +36,9 @@ export const GetOwnedItemsDocument = gql`
 	query GetOwnedItems {
 		ownedItems {
 			id
-			nameNo
+			name {
+				no
+			}
 			usageTypes
 			gfxList
 		}
