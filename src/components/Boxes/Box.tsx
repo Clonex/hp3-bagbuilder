@@ -20,10 +20,10 @@ export const BoxContent: FunctionComponent<{ data: Box }> = ({ data }) => {
 				{data.items.map(item => (
 					<div>
 						<img
-							alt={item.data.nameNo}
+							alt={item.data.name.no}
 							src={`https://hundeparken.net/h5/game/gfx/item/${item.data.gfxList.at(0)}.png`}
 						/>
-						{item.amount}x {item.data.nameNo}
+						{item.amount}x {item.data.name.no}
 					</div>
 				))}
 			</div>
